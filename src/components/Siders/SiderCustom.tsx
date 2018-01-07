@@ -6,21 +6,10 @@ import SiderMent from './SiderMenu';
 import { menus } from './menus'
 
 interface Props {
-  children?: React.ReactNode;
-}
-
-interface State {
   collapsed: boolean;
 }
 
 class SiderCustom extends React.Component<Props> {
-  state: State = {
-    collapsed: false
-  };
-
-  onCollapse = (collapsed: any) => {
-    this.setState({ collapsed });
-  }
 
   constructor(public props: Props) {
     super(props);
@@ -29,17 +18,16 @@ class SiderCustom extends React.Component<Props> {
   render() {
     return (
       <Sider 
-        width={200} 
-        style={{ background: '#fff' }}
         breakpoint="lg"
-        collapsedWidth="200"
         trigger={null}
         collapsible
-        collapsed={this.state.collapsed}
+        collapsed={this.props.collapsed}
       >
-        <SiderMent 
+      <div className="logo" />
+      <SiderMent 
           menus={menus} 
           mode="inline"
+          theme='dark'
         />
       </Sider>
     );

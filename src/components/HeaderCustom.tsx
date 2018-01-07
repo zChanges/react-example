@@ -6,35 +6,23 @@ import { Layout, Icon } from 'antd';
 const { Header } = Layout;
 
 interface Props {
-  children?: React.ReactNode;
-}
-
-interface State {
-  collapsed: boolean;
+  collapsed?: boolean;
+  toggle():void;
 }
 
 class HeaderCustom extends React.Component<Props> {
-  state: State = {
-    collapsed: false
-  };
   constructor(public props: Props) {
     super(props);
   }
   
-  toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed
-    });
-  }
 
   render() {
     return (
-      <Header className="header">
-          <div className="logo" />
+      <Header  style={{ background: '#fff', padding: 0 }}>
           <Icon
               className="trigger"
-              type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-              onClick={this.toggle}
+              type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
+              onClick={this.props.toggle}
           />
       </Header>
     );

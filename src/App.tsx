@@ -6,7 +6,7 @@ const { Content } = Layout;
 // 头
 import HeaderCustom from './components/HeaderCustom';
 // 左侧导航
-import SiderCustom from './components/SiderCustom';
+import SiderCustom from './components/Siders/SiderCustom';
 // Router
 import Router from './routes';
 import './App.less';
@@ -29,9 +29,9 @@ class App extends React.Component<Props> {
   render() {
     return (
     <Layout className="app">
-      <HeaderCustom  />
+      <SiderCustom collapsed={this.state.collapsed} />
       <Layout>
-        <SiderCustom />
+        <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} />
         <Layout style={{ padding: '0 24px 24px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>Home</Breadcrumb.Item>

@@ -29,7 +29,7 @@ const renderSubMenu = ({ key, title, icon, sub, ...props }: Menus) => (
   </Menu.SubMenu>
 );
 
-export default ({ menus, ...props }: {menus: Array<Menus>, mode: any}) => (
+export default ({ menus, ...props }: {menus: Array<Menus>, mode: any, theme?: any}) => (
   <Menu {...props}>
     {menus &&
       menus.map(
